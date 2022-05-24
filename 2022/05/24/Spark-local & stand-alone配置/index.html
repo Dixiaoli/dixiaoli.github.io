@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Spark-local &amp; stand-alone配置 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="Spark安装配置Spark是专为大规模数据处理而设计的快速通用的计算引擎，其提供了一个全面、统一的框架用于管理各种不同性质的数据集和数据源的大数据处理的需求，大数据开发需掌握Spark基础、SparkJob、Spark RDD、spark job部署与资源分配、Spark shuffle、Spark内存管理、Spark广播变量、Spark SQL、Spark Streaming以及Spark M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2022/05/24/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Spark-local &amp; stand-alone配置">
+<meta property="og:url" content="http://example.com/2022/05/24/Spark-local%20&%20stand-alone%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Spark安装配置Spark是专为大规模数据处理而设计的快速通用的计算引擎，其提供了一个全面、统一的框架用于管理各种不同性质的数据集和数据源的大数据处理的需求，大数据开发需掌握Spark基础、SparkJob、Spark RDD、spark job部署与资源分配、Spark shuffle、Spark内存管理、Spark广播变量、Spark SQL、Spark Streaming以及Spark M">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="d:%5C%E5%AD%A6%E4%B9%A0%5C2022%E5%AD%A6%E6%9C%9F%5Chadoop%5Cimgs%5Cimage-20220405131946528.png">
 <meta property="og:image" content="d:%5C%E5%AD%A6%E4%B9%A0%5C2022%E5%AD%A6%E6%9C%9F%5Chadoop%5Cimgs%5Cimage-20220405132216135.png">
 <meta property="og:image" content="d:%5C%E5%AD%A6%E4%B9%A0%5C2022%E5%AD%A6%E6%9C%9F%5Chadoop%5Cimgs%5Cimage-20220405132434960.png">
-<meta property="article:published_time" content="2022-05-24T15:18:12.562Z">
-<meta property="article:modified_time" content="2022-05-22T07:54:39.580Z">
+<meta property="article:published_time" content="2022-05-24T15:20:38.000Z">
+<meta property="article:modified_time" content="2022-05-24T15:25:57.551Z">
 <meta property="article:author" content="十三先森">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="d:%5C%E5%AD%A6%E4%B9%A0%5C2022%E5%AD%A6%E6%9C%9F%5Chadoop%5Cimgs%5Cimage-20220405131946528.png">
@@ -215,9 +215,57 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spark local&amp; stand-alone配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spark-local &amp; stand-alone配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 class="article-title" itemprop="name">
+      Spark-local &amp; stand-alone配置
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2022/05/24/Spark-local%20&%20stand-alone%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+        <time datetime="2022-05-24T15:20:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-24</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.9k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
     <h4 id="Spark安装配置"><a href="#Spark安装配置" class="headerlink" title="Spark安装配置"></a>Spark安装配置</h4><p>Spark是专为大规模数据处理而设计的快速通用的计算引擎，其提供了一个全面、统一的框架用于管理各种不同性质的数据集和数据源的大数据处理的需求，大数据开发需掌握Spark基础、SparkJob、Spark RDD、spark job部署与资源分配、Spark shuffle、Spark内存管理、Spark广播变量、Spark SQL、Spark Streaming以及Spark ML等相关知识。</p>
@@ -398,7 +446,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/05/24/Spark local& stand-alone配置/" title="" target="_blank">http://example.com/2022/05/24/Spark local& stand-alone配置/</a>
+          <a href="http://example.com/2022/05/24/Spark-local & stand-alone配置/" title="Spark-local &amp; stand-alone配置" target="_blank">http://example.com/2022/05/24/Spark-local & stand-alone配置/</a>
         </li>
         
         <li>
@@ -465,7 +513,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/24/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/24/Spark-local%20&%20stand-alone%E9%85%8D%E7%BD%AE/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -480,11 +528,11 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 
 <nav id="article-nav">
   
-    <a href="/2022/05/24/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/05/24/Spark-HA-Yarn%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          Spark HA &amp; Yarn配置
         
       </div>
     </a>
