@@ -276,10 +276,10 @@
 <li><p>访问 WebUI 界面</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:8081/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/8081.png" alt="8081"></p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/8081.png" alt="8081"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/8082.png" alt="8082"></p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/8082.png" alt="8082"></p>
 </li>
 <li><p>此时 kill 掉 node1 上的 master 假设 node1主机宕机掉</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node1主机 master 的进程号</span></span><br><span class="line">kill -9 41589</span><br><span class="line"></span><br><span class="line">结果显示：</span><br><span class="line">(base) [root@node1 ~]# jps</span><br><span class="line">37328 DataNode</span><br><span class="line">90336 Jps</span><br><span class="line">35798 QuorumPeerMain</span><br><span class="line">38521 ResourceManager</span><br><span class="line">38907 NodeManager</span><br><span class="line">41821 Worker</span><br><span class="line">36958 NameNode</span><br></pre></td></tr></table></figure>
@@ -287,7 +287,7 @@
 <li><p>访问 node2 的 WebUI</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/node28082.png" alt="node28082"></p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/node28082.png" alt="node28082"></p>
 </li>
 <li><p>进行主备切换的测试</p>
 </li>
@@ -304,7 +304,7 @@
 <li><p>再次访问 node2 的 WebUI</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/1653208148123.png" alt="1653208148123"></p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/1653208148123.png" alt="1653208148123"></p>
 </li>
 <li><p>可以看到当前活跃的 node1 提示信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@noode1 ~]# /export/server/spark/bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 1000</span><br><span class="line">22/03/29 16:11:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneAppClient$ClientEndpoint: Connection to node1:7077 failed; waiting for node1 to reconnect...</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneSchedulerBackend: Disconnected from Spark cluster! Waiting for reconnection...</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneAppClient$ClientEndpoint: Connection to node1:7077 failed; waiting for node1 to reconnect...</span><br><span class="line">Pi is roughly 3.140960</span><br></pre></td></tr></table></figure>
@@ -351,7 +351,7 @@ bin/spark-submit --node1 spark://node1:7077 xxx.py`
 <li><p>访问WebUI界面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:19888/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/1653208409868.png" alt="1653208409868"></p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/1653208409868.png" alt="1653208409868"></p>
 </li>
 <li><p>client 模式测试</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/export/server/spark </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">&#123;SPARK_HOME&#125;/bin/spark-submit  --master yarn  --deploy-mode client  --driver-memory 512m  --executor-memory 512m  --num-executors 1  --total-executor-cores 2 <span class="variable">$&#123;SPARK_HOME&#125;</span>/examples/src/main/python/pi.py 3</span></span><br></pre></td></tr></table></figure>
@@ -516,7 +516,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>查看WebUI界面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:4040/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-local-stand-alone%E9%85%8D%E7%BD%AE/4040.png" alt="4040"></p>
+<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/4040.png" alt="4040"></p>
 </li>
 <li><p>退出</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
@@ -587,7 +587,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>访问 WebUI 界面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:18080/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-local-stand-alone%E9%85%8D%E7%BD%AE/18080.png" alt="18080"></p>
+<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/18080.png" alt="18080"></p>
 </li>
 <li><p>启动Spark的Master和Worker进程</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动全部master和worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者可以一个个启动:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的master</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的worker</span></span><br><span class="line">sbin/start-worker.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止全部</span></span><br><span class="line">sbin/stop-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的master</span></span><br><span class="line">sbin/stop-master.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的worker</span></span><br><span class="line">sbin/stop-worker.sh</span><br></pre></td></tr></table></figure>
@@ -595,7 +595,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>访问 WebUI界面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:8080/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark-local-stand-alone%E9%85%8D%E7%BD%AE/8080.png" alt="8080"></p>
+<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/8080.png" alt="8080"></p>
 </li>
 </ul>
 
@@ -806,12 +806,12 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>HDFS集群：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:9870/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/9870.png" alt="9870"></p>
+<p><img src="/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/9870.png" alt="9870"></p>
 </li>
 <li><p>YARN集群：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:8088/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/./Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/8088.png" alt="8088"></p>
+<p><img src="/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/8088.png" alt="8088"></p>
 </li>
 </ul>
 </li>
