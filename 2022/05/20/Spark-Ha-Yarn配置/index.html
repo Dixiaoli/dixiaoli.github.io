@@ -6,21 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Spark HA &amp; Yarn配置 | Hexo</title>
+  <title>Spark-Ha &amp; Yarn配置 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="三、Spark-Standalone-HA模式Spark Standalone集群是Master-Slaves架构的集群模式,和大部分的Master-Slaves结构集群一样,存在着Master 单点故障(SPOF)的问题。简单理解为，spark-Standalone 模式下为 node1 节点控制其他节点，当 node1节点出现故障时，集群就不可用了。						spark-Standalone">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark HA &amp; Yarn配置">
-<meta property="og:url" content="http://example.com/2022/05/28/Spark-HA%20&%20Yarn%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Spark-Ha &amp; Yarn配置">
+<meta property="og:url" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="三、Spark-Standalone-HA模式Spark Standalone集群是Master-Slaves架构的集群模式,和大部分的Master-Slaves结构集群一样,存在着Master 单点故障(SPOF)的问题。简单理解为，spark-Standalone 模式下为 node1 节点控制其他节点，当 node1节点出现故障时，集群就不可用了。						spark-Standalone">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-28T06:59:40.000Z">
-<meta property="article:modified_time" content="2022-05-28T07:16:47.959Z">
+<meta property="og:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/8081.png">
+<meta property="og:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/8082.png">
+<meta property="og:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/node28082.png">
+<meta property="og:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/1653208148123.png">
+<meta property="og:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/1653208409868.png">
+<meta property="article:published_time" content="2022-05-20T07:49:06.000Z">
+<meta property="article:modified_time" content="2022-05-28T07:51:51.115Z">
 <meta property="article:author" content="十三先森">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-Ha-Yarn配置/8081.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -211,14 +217,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spark-HA &amp; Yarn配置" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spark-Ha-Yarn配置" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Spark HA &amp; Yarn配置
+      Spark-Ha &amp; Yarn配置
     </h1>
   
 
@@ -230,8 +236,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/05/28/Spark-HA%20&%20Yarn%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-05-28T06:59:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-28</time>
+<a href="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+        <time datetime="2022-05-20T07:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
 </a>
 
   
@@ -253,7 +259,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">10分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -297,10 +303,10 @@
 <li><p>访问 WebUI 界面</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:8081/</span><br></pre></td></tr></table></figure>
 
-<p>![](D:\Git\blog\source_posts\Spark-HA &amp; Yarn配置\8081.png)</p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-Ha-Yarn配置\8081.png"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p>![](D:\Git\blog\source_posts\Spark-HA &amp; Yarn配置\8082.png)</p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-Ha-Yarn配置\8082.png"></p>
 </li>
 <li><p>此时 kill 掉 node1 上的 master 假设 node1主机宕机掉</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">node1主机 master 的进程号</span></span><br><span class="line">kill -9 41589</span><br><span class="line"></span><br><span class="line">结果显示：</span><br><span class="line">(base) [root@node1 ~]# jps</span><br><span class="line">37328 DataNode</span><br><span class="line">90336 Jps</span><br><span class="line">35798 QuorumPeerMain</span><br><span class="line">38521 ResourceManager</span><br><span class="line">38907 NodeManager</span><br><span class="line">41821 Worker</span><br><span class="line">36958 NameNode</span><br></pre></td></tr></table></figure>
@@ -308,7 +314,7 @@
 <li><p>访问 node2 的 WebUI</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p>![](D:\Git\blog\source_posts\Spark-HA &amp; Yarn配置\node28082.png)</p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-Ha-Yarn配置\node28082.png"></p>
 </li>
 <li><p>进行主备切换的测试</p>
 </li>
@@ -325,7 +331,7 @@
 <li><p>再次访问 node2 的 WebUI</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node2:8082/</span><br></pre></td></tr></table></figure>
 
-<p>![](D:\Git\blog\source_posts\Spark-HA &amp; Yarn配置\1653208148123.png)</p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-Ha-Yarn配置\1653208148123.png"></p>
 </li>
 <li><p>可以看到当前活跃的 node1 提示信息</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(base) [root@noode1 ~]# /export/server/spark/bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 1000</span><br><span class="line">22/03/29 16:11:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneAppClient$ClientEndpoint: Connection to node1:7077 failed; waiting for node1 to reconnect...</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneSchedulerBackend: Disconnected from Spark cluster! Waiting for reconnection...</span><br><span class="line">22/03/29 16:12:16 WARN StandaloneAppClient$ClientEndpoint: Connection to node1:7077 failed; waiting for node1 to reconnect...</span><br><span class="line">Pi is roughly 3.140960</span><br></pre></td></tr></table></figure>
@@ -333,12 +339,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同样可以输出结果</span><br></pre></td></tr></table></figure>
 
 <p>当新的 master 接收集群后, 程序继续运行, 正常得到结果.</p>
+</li>
+</ul>
 <blockquote>
 <p>结论 HA模式下, 主备切换 不会影响到正在运行的程序.</p>
 <p>最大的影响是 会让它中断大约30秒左右.</p>
 </blockquote>
-</li>
-</ul>
 <h5 id="四、Spark-On-YARN模式"><a href="#四、Spark-On-YARN模式" class="headerlink" title="四、Spark On YARN模式"></a>四、Spark On YARN模式</h5><p>在已有YARN集群的前提下在单独准备Spark StandAlone集群,对资源的利用就不高.Spark On YARN, 无需部署Spark集群, 只要找一台服务器, 充当Spark的客户端</p>
 <ul>
 <li><p>保证 HADOOP_CONF_和 DIR_YARN_CONF_DIR 已经配置在 spark-env.sh 和环境变量中 （注: 前面配置spark-Standlone 时已经配置过此项了）</p>
@@ -372,7 +378,7 @@ bin/spark-submit --node1 spark://node1:7077 xxx.py`
 <li><p>访问WebUI界面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://node1:19888/</span><br></pre></td></tr></table></figure>
 
-<p>![](D:\Git\blog\source_posts\Spark-HA &amp; Yarn配置\1653208409868.png)</p>
+<p><img src="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-Ha-Yarn配置\1653208409868.png"></p>
 </li>
 <li><p>client 模式测试</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SPARK_HOME=/export/server/spark </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">&#123;SPARK_HOME&#125;/bin/spark-submit  --master yarn  --deploy-mode client  --driver-memory 512m  --executor-memory 512m  --num-executors 1  --total-executor-cores 2 <span class="variable">$&#123;SPARK_HOME&#125;</span>/examples/src/main/python/pi.py 3</span></span><br></pre></td></tr></table></figure>
@@ -394,7 +400,7 @@ bin/spark-submit --node1 spark://node1:7077 xxx.py`
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2022/05/28/Spark-HA & Yarn配置/" title="Spark HA &amp; Yarn配置" target="_blank">http://example.com/2022/05/28/Spark-HA & Yarn配置/</a>
+          <a href="http://example.com/2022/05/20/Spark-Ha-Yarn配置/" title="Spark-Ha &amp; Yarn配置" target="_blank">http://example.com/2022/05/20/Spark-Ha-Yarn配置/</a>
         </li>
         
         <li>
@@ -461,7 +467,7 @@ bin/spark-submit --node1 spark://node1:7077 xxx.py`
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/28/Spark-HA%20&%20Yarn%E9%85%8D%E7%BD%AE/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -477,7 +483,7 @@ bin/spark-submit --node1 spark://node1:7077 xxx.py`
 <nav id="article-nav">
   
   
-    <a href="/2022/05/20/Spark-local%20&%20stand-alone%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Spark-local &amp; stand-alone配置</div>
       <i class="icon-circle-right"></i>
     </a>
