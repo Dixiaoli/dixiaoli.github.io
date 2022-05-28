@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Spark安装配置 Spark是专为大规模数据处理而设计的快速通用的计算引擎，其提供了一个全面、统一的框架用于管理各种不同性质的数据集和数据源的大数据处理的需求，大数据开发需掌握Spark基础、SparkJob、Spark RDD、spark job部署与资源分配、Spark shuffle、Spark内存管理、Spark广播变量、Spark SQL、Spark Streaming以及Spark">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dixiaoli.github.io/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-local-stand-alone配置/4040.png">
-<meta property="og:image" content="https://dixiaoli.github.io/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-local-stand-alone配置/18080.png">
-<meta property="og:image" content="https://dixiaoli.github.io/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-local-stand-alone配置/8080.png">
+<meta property="og:image" content="d:/Git/blog/source_posts/Spark-local-stand-alone配置/4040.png">
+<meta property="og:image" content="d:/Git/blog/source_posts/Spark-local-stand-alone配置/18080.png">
+<meta property="og:image" content="d:/Git/blog/source_posts/Spark-local-stand-alone配置/8080.png">
 <meta property="article:published_time" content="2022-05-20T07:46:11.000Z">
 <meta property="article:modified_time" content="2022-05-28T08:04:19.339Z">
 <meta property="article:author" content="十三先森">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dixiaoli.github.io/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git/blog/source_posts/Spark-local-stand-alone配置/4040.png">
+<meta name="twitter:image" content="d:/Git/blog/source_posts/Spark-local-stand-alone配置/4040.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -351,7 +351,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>查看WebUI界面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:4040/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-local-stand-alone配置\4040.png" alt="4040"></p>
+<p><img src="D:\Git\blog\source_posts\Spark-local-stand-alone配置\4040.png" alt="4040"></p>
 </li>
 <li><p>退出</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure></li>
@@ -422,7 +422,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>访问 WebUI 界面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:18080/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-local-stand-alone配置\18080.png" alt="18080"></p>
+<p><img src="D:\Git\blog\source_posts\Spark-local-stand-alone配置\18080.png" alt="18080"></p>
 </li>
 <li><p>启动Spark的Master和Worker进程</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动全部master和worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者可以一个个启动:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的master</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的worker</span></span><br><span class="line">sbin/start-worker.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止全部</span></span><br><span class="line">sbin/stop-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的master</span></span><br><span class="line">sbin/stop-master.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的worker</span></span><br><span class="line">sbin/stop-worker.sh</span><br></pre></td></tr></table></figure>
@@ -430,7 +430,7 @@ export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python
 <li><p>访问 WebUI界面</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：</span><br><span class="line"></span><br><span class="line">http://node1:8080/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/Git\blog\source_posts\Spark-local-stand-alone配置\8080.png" alt="8080"></p>
+<p><img src="D:\Git\blog\source_posts\Spark-local-stand-alone配置\8080.png" alt="8080"></p>
 </li>
 </ul>
 
