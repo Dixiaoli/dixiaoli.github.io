@@ -10,17 +10,17 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="一、安装配置 jdk 编译环境软件安装目录 1mkdir -p &#x2F;export&#x2F;server  JDK 1.8安装  上传 jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下 并解压文件 1tar -zxvf jdk-8u241-linux-x64.tar.gz  配置环境变量   12345vim &#x2F;etc&#x2F;profileex">
+  <meta name="description" content="一、安装配置 jdk 编译环境软件安装目录 1mkdir -p &#x2F;export&#x2F;server  JDK 1.8安装  上传 jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下 并解压文件 1tar -zxvf jdk-8u241-linux-x64.tar.gz  配置环境变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark基础配置">
 <meta property="og:url" content="http://dixiaoli.github.io/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、安装配置 jdk 编译环境软件安装目录 1mkdir -p &#x2F;export&#x2F;server  JDK 1.8安装  上传 jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下 并解压文件 1tar -zxvf jdk-8u241-linux-x64.tar.gz  配置环境变量   12345vim &#x2F;etc&#x2F;profileex">
+<meta property="og:description" content="一、安装配置 jdk 编译环境软件安装目录 1mkdir -p &#x2F;export&#x2F;server  JDK 1.8安装  上传 jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下 并解压文件 1tar -zxvf jdk-8u241-linux-x64.tar.gz  配置环境变量">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://dixiaoli.github.io/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/9870.png">
 <meta property="og:image" content="http://dixiaoli.github.io/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/8088.png">
 <meta property="article:published_time" content="2022-05-20T07:43:12.000Z">
-<meta property="article:modified_time" content="2022-05-28T08:54:47.707Z">
+<meta property="article:modified_time" content="2022-06-14T03:18:29.226Z">
 <meta property="article:author" content="十三先森">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://dixiaoli.github.io/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/9870.png">
@@ -275,7 +275,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u241-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置环境变量</p>
-<!--read more-->
+<span id="more"></span>
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/export/server/jdk1.8.0_241</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
 </li>
