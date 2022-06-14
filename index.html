@@ -403,30 +403,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /export/server</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>JDK 1.8安装  上传 jdk-8u241-linux-x64.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下 并解压文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u241-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置环境变量</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/export/server/jdk1.8.0_241</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新加载环境变量文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看 java 版本号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">结果显示：</span><br><span class="line">[root@node1 jdk1.8.0_241]# java -version</span><br><span class="line">java version &quot;1.8.0_241&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_241-b07)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.241-b07, mixed mode)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>node1 节点将 java 传输到 node2 和 node3</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r /export/server/jdk1.8.0_241/ root@node2:/export/server/</span><br><span class="line">scp -r /export/server/jdk1.8.0_241/ root@node3:/export/server/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置 node1和 node3的 jdk 环境变量（注：和上方 node1 的配置方法一样）</p>
-</li>
-<li><p>在 node1、node2 和node3 创建软连接</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /export/server</span><br><span class="line"></span><br><span class="line">ln -s jdk1.8.0_241/ jdk</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重新加载环境变量文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
-</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u241-linux-x64.tar.gz</span><br></pre></td></tr></table></figure></li></ul>
     
     <a class="article-more-a" href="/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/#more">more >></a>
     
