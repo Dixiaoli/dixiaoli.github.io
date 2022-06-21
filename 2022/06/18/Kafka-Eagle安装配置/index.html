@@ -6,17 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://dixiaoli.github.io">
-  <title>Archives | Hexo</title>
+  <title>Kafka-Eagle安装配置 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://dixiaoli.github.io/archives/index.html">
+  <meta name="description" content="Kafka EagleKafka产线环境需要管理的Topic和Consumer越来越多，使用命令行工具进行管理会非常繁杂。因此，大数据平台上需要一套Kafka的管理监控系统，Kafka-Eagle。 Kafka Eagle是一个用于监控和管理kafka的开源组件，可以同时监控多个kafka集群。Kafka Eagle提供了完善的监控页面和kafka常用操作的管理界面，便于管理员对kafka集群进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka-Eagle安装配置">
+<meta property="og:url" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kafka EagleKafka产线环境需要管理的Topic和Consumer越来越多，使用命令行工具进行管理会非常繁杂。因此，大数据平台上需要一套Kafka的管理监控系统，Kafka-Eagle。 Kafka Eagle是一个用于监控和管理kafka的开源组件，可以同时监控多个kafka集群。Kafka Eagle提供了完善的监控页面和kafka常用操作的管理界面，便于管理员对kafka集群进行">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654833388485.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C666745-20191228023437457-685783590.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654834837024.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220621212753.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654835742491.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654836484137.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654836881909.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654837265510.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654858997710.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654859082867.png">
+<meta property="og:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654859181039.png">
+<meta property="article:published_time" content="2022-06-18T03:30:41.000Z">
+<meta property="article:modified_time" content="2022-06-21T13:50:07.259Z">
 <meta property="article:author" content="十三先森">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654833388485.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -207,246 +223,248 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Kafka-Eagle安装配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      Kafka-Eagle安装配置
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" class="archive-article-date">
         <time datetime="2022-06-18T03:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-18</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" target="_blank">Kafka-Eagle安装配置</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">928字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Kafka-Eagle"><a href="#Kafka-Eagle" class="headerlink" title="Kafka Eagle"></a>Kafka Eagle</h3><p>Kafka产线环境需要管理的<code>Topic</code>和<code>Consumer</code>越来越多，使用命令行工具进行管理会非常繁杂。因此，大数据平台上需要一套Kafka的管理监控系统，<code>Kafka-Eagle</code>。</p>
+<p>Kafka Eagle是一个用于监控和管理kafka的开源组件，可以同时监控多个kafka集群。<br>Kafka Eagle提供了完善的监控页面和kafka常用操作的管理界面，便于管理员对kafka集群进行运维管理。</p>
+<p>Kafka Eagle提供了<code>KSQL</code>操作的可视化界面，让你可以非常快速的查看kafka中的消息。</p>
+<p>Kafka Eagle支持多种报警方式，如钉钉，微信和邮件等</p>
+<span id="more"></span>
+
+<h4 id="一、安装部署"><a href="#一、安装部署" class="headerlink" title="一、安装部署"></a>一、安装部署</h4><h5 id="1、下载Kafka-Eagle安装包"><a href="#1、下载Kafka-Eagle安装包" class="headerlink" title="1、下载Kafka-Eagle安装包"></a>1、下载Kafka-Eagle安装包</h5><p><strong><a target="_blank" rel="noopener" href="http://download.kafka-eagle.org/">官网地址</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/smartloli/kafka-eagle-bin/"><strong>安装包下载地址</strong></a></p>
+<h5 id="2、安装部署"><a href="#2、安装部署" class="headerlink" title="2、安装部署"></a>2、安装部署</h5><p><strong>由于源代码核心实现采用的是Java语言，所以需要配置JDK环境，建议采用JDK8以上。</strong></p>
+<ul>
+<li>将Kafka-Eagle上传到node1并解压到&#x2F;export&#x2F;server&#x2F;目录下</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf kafka-eagle-web-2.0.2-bin.tar.gz -C /export/server</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置环境变量</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#KAFKA_EAGLE</span><br><span class="line">export KE_HOME=/export/server/kafka-eagle</span><br><span class="line">export PATH=$PATH:$KE_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重新加载环境变量文件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进入 &#x2F;export&#x2F;server&#x2F;kafka-eagle&#x2F;conf&#x2F;</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim system-config.properties</span><br><span class="line"></span><br><span class="line">#对以下部分进行修改</span><br><span class="line">kafka.eagle.zk.cluster.alias=cluster1</span><br><span class="line">cluster1.zk.list=node1:2181,node2:2181,node3:2181</span><br><span class="line">cluster1.kafka.eagle.broker.size=3</span><br><span class="line"></span><br><span class="line">kafka.eagle.url=jdbc:sqlite:/export/data/db/ke.db</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 &#x2F;export&#x2F;server 目录下创建软连接</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /export/server/kafka-eagle-web-2.0.2/ kafka-eagle</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、启动Eagle"><a href="#二、启动Eagle" class="headerlink" title="二、启动Eagle"></a>二、启动Eagle</h4><p><strong>启动前需要手动创建&#x2F;export&#x2F;data&#x2F;db目录</strong></p>
+<h5 id="1、进入安装bin目录下"><a href="#1、进入安装bin目录下" class="headerlink" title="1、进入安装bin目录下"></a>1、进入安装bin目录下</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">在ke.sh脚本中，支持一下命令</span><br><span class="line"></span><br><span class="line">ke.sh start       				启动kafka Eagle</span><br><span class="line"></span><br><span class="line">ke.sh stop       				停止kafka-eagle</span><br><span class="line"></span><br><span class="line">ke.sh restart     				重启kafka-eagle</span><br><span class="line"></span><br><span class="line">ke.sh status      				查看kafka-eagle系统运行状态</span><br><span class="line"></span><br><span class="line">ke.sh stats        				统计kafka-eagle系统占用资源情况</span><br><span class="line"></span><br><span class="line">ke.sh find [ClassName]       	查看kafka-eagle中得类是否存在</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2、启动成功截图"><a href="#2、启动成功截图" class="headerlink" title="2、启动成功截图"></a>2、启动成功截图</h5><p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654833388485.png"></p>
+<h4 id="三、Eagle的使用"><a href="#三、Eagle的使用" class="headerlink" title="三、Eagle的使用"></a>三、Eagle的使用</h4><p><strong>Kafka Eagle监控管理系统，提供了一个可视化页面，使用者可以拥有不同的角色，例如管理员、开发者、游客等。不同的角色对应不同的使用权限。在知道了Kafka Eagle的作用之后，那么它包含哪些功能呢？核心功能如下所示：</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C666745-20191228023437457-685783590.png"></p>
+<h5 id="1、登录界面"><a href="#1、登录界面" class="headerlink" title="1、登录界面"></a>1、登录界面</h5><p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654834837024.png"></p>
+<h5 id="2、数据面板"><a href="#2、数据面板" class="headerlink" title="2、数据面板"></a>2、数据面板</h5><p><strong>负责展示Kafka集群的Broker数、Topic数、Consumer数、以及Topic LogSize Top10和Topic Capacity Top10数据。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220621212753.png"></p>
+<h5 id="3、主题"><a href="#3、主题" class="headerlink" title="3、主题"></a>3、主题</h5><p><strong>该模块包含主题创建、主题管理、主题预览、KSQL查询主题、主题数据写入、主题属性配置等。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654835742491.png"></p>
+<h5 id="4、消费者组"><a href="#4、消费者组" class="headerlink" title="4、消费者组"></a>4、消费者组</h5><p><strong>该模块包含监控不同消费者组中的Topic被消费的详情，例如LogSize、Offsets、以及Lag等。同时，支持查看Lag的历史趋势图。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654836484137.png"></p>
+<h5 id="5、集群管理"><a href="#5、集群管理" class="headerlink" title="5、集群管理"></a>5、集群管理</h5><p><strong>该模块包含Kafka集群和Zookeeper集群的详情展示，例如Kafka的IP和端口、版本号、启动时间、Zookeeper的Leader和Follower。同时，还支持多Kafka集群切换，以及Zookeeper Client数据查看等功能。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654836881909.png"></p>
+<h5 id="6、指标监控"><a href="#6、指标监控" class="headerlink" title="6、指标监控"></a>6、指标监控</h5><p><strong>该模块包含监控Kafka集群和Zookeeper集群的核心指标，包含Kafka的消息发送趋势、消息大小接收与发送趋势、Zookeeper的连接数趋势等。同时，还支持查看Broker的瞬时指标数据。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654837265510.png"></p>
+<h5 id="7、告警"><a href="#7、告警" class="headerlink" title="7、告警"></a>7、告警</h5><p>该模块包含告警集群异常和消费者应用Lag异常。同时，支持多种IM告警方式，例如邮件、钉钉、微信、Webhook等。</p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654858997710.png"></p>
+<h5 id="8、系统管理"><a href="#8、系统管理" class="headerlink" title="8、系统管理"></a>8、系统管理</h5><p><strong>该模块包含用户管理，例如创建用户、用户授权、资源管理等。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654859082867.png"></p>
+<h5 id="9、数据大屏"><a href="#9、数据大屏" class="headerlink" title="9、数据大屏"></a>9、数据大屏</h5><p><strong>该模块包含展示消费者和生产者当日及最近7天趋势、Kafka集群读写速度、Kafka集群历史总记录等。</strong></p>
+<p><img src="/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/.%5CKafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%5C1654859181039.png"></p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          十三先森
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://dixiaoli.github.io/2022/06/18/Kafka-Eagle安装配置/" title="Kafka-Eagle安装配置" target="_blank">http://dixiaoli.github.io/2022/06/18/Kafka-Eagle安装配置/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://dixiaoli.github.io/2022/06/18/Kafka-Eagle%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/06/10/Kafka%E7%94%9F%E4%BA%A7%E8%80%85API%E7%A4%BA%E4%BE%8B/" class="archive-article-date">
-        <time datetime="2022-06-10T03:21:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-10</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/06/10/Kafka%E7%94%9F%E4%BA%A7%E8%80%85API%E7%A4%BA%E4%BE%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kafka生产者API示例</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/06/10/Kafka%E7%94%9F%E4%BA%A7%E8%80%85API%E7%A4%BA%E4%BE%8B/" target="_blank">Kafka生产者API示例</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/06/10/Kafka%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2022-06-10T01:22:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/06/10/Kafka%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%93%8D%E4%BD%9C/" target="_blank">Kafka命令行操作</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/06/10/Kafka%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-06-10T00:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/06/10/Kafka%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" target="_blank">Kafka环境配置</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-05-20T07:49:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/20/Spark-Ha-Yarn%E9%85%8D%E7%BD%AE/" target="_blank">Spark-Ha &amp; Yarn配置</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-05-20T07:46:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/20/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/" target="_blank">Spark-local &amp; stand-alone配置</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-05-20T07:43:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/05/20/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/" target="_blank">Spark基础配置</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -487,8 +505,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
